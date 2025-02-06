@@ -1,0 +1,48 @@
+ create database emp;
+use emp
+ CREATE TABLE Employee (
+    ->     S_no INT PRIMARY KEY AUTO_INCREMENT,
+    ->     Employee_ID INT UNIQUE,
+    ->     Employee_Name VARCHAR(50),
+    ->     Dateofbirth DATE,
+    ->     Dateofjoining DATE,
+    ->     Salary INT,
+    ->     Bonus INT,
+    ->     City VARCHAR(50),
+    ->     Address VARCHAR(255),
+    ->     Department VARCHAR(50),
+    ->     Employee_Email_id VARCHAR(100),
+    ->     Employee_status VARCHAR(20),
+    ->     Time_Stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    -> );
+INSERT INTO Employee (Employee_ID, Employee_Name, Dateofbirth, Dateofjoining, Salary, Bonus, City, Address, Department, Employee_Email_id, Employee_status)
+    -> VALUES
+    -> (101, 'Michael', '1990-05-15', '2015-06-20', 75000, 5000, 'Chennai', 'Street 1', 'IT', 'michael@company.com', 'Active'),
+    -> (102, 'John', '1985-09-22', '2010-11-25', 90000, 8000, 'Bangalore', 'Street 2', 'HR', 'john@company.com', 'Active'),
+    -> (103, 'Mary', '1993-07-10', '2018-05-15', 68000, 6000, 'Chennai', 'Street 3', 'Finance', 'mary@company.com', 'Active'),
+    -> (104, 'Mathew', '1992-02-11', '2017-09-10', 72000, 5500, 'Delhi', 'Street 4', 'IT', 'mathew@company.com', 'Active'),
+    -> (105, 'Samantha', '1988-12-30', '2012-04-12', 82000, 7000, 'Mumbai', 'Street 5', 'Marketing', 'samantha@company.com', 'Inactive'),
+    -> (106, 'Max', '1995-06-15', '2019-08-20', 60000, 4000, 'Chennai', 'Street 6', 'IT', 'max@company.com', 'Active'),
+    -> (107, 'David', '1987-11-05', '2013-07-18', 98000, 8500, 'Hyderabad', 'Street 7', 'Sales', 'david@company.com', 'Inactive'),
+    -> (108, 'Michelle', '1990-08-25', '2014-12-05', 89000, 7500, 'Bangalore', 'Street 8', 'HR', 'michelle@company.com', 'Active'),
+    -> (109, 'Mark', '1994-03-18', '2016-11-10', 71000, 5000, 'Pune', 'Street 9', 'IT', 'mark@company.com', 'Active'),
+    -> (110, 'Ryan', '1989-10-20', '2011-03-08', 95000, 7800, 'Chennai', 'Street 10', 'Operations', 'ryan@company.com', 'Inactive');
+ ALTER TABLE Employee CHANGE COLUMN Address Home_Address VARCHAR(255);
+select * from Employee;
+ ALTER TABLE Employee ADD COLUMN Phone_Number VARCHAR(15);
+ UPDATE Employee SET Phone_Number = '9876543210' WHERE Employee_ID = 101;
+ ALTER TABLE Employee DROP COLUMN Bonus;
+ DELETE FROM Employee WHERE Employee_ID = 106;
+ SELECT * FROM Employee WHERE Employee_Name LIKE 'M%';
+ SELECT * FROM Employee WHERE Salary > 70000;
+ SELECT * FROM Employee WHERE City = 'Chennai';
+SELECT * FROM Employee WHERE Salary > 70000 AND Employee_status = 'Active';
+SELECT * FROM Employee WHERE Salary < 80000 OR City = 'Mumbai';
+ SELECT MIN(Salary) AS Min_Salary FROM Employee;
+ SELECT MAX(Salary) AS Max_Salary FROM Employee;
+ SELECT COUNT(*) AS Total_Employees FROM Employee;
+ SELECT SUM(Salary) AS Total_Salary FROM Employee;
+ SELECT AVG(Salary) AS Average_Salary FROM Employee;
+ SELECT * FROM Employee WHERE Salary BETWEEN 70000 AND 90000;
+ SELECT * FROM Employee WHERE Employee_Name LIKE '%a%';
+ TRUNCATE TABLE Employee;
